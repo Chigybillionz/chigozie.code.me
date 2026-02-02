@@ -6,7 +6,6 @@ import Socials from './socials.vue'
 import Projects from './project.vue'
 import DeveloperExperience from './developerExperience.vue'
 import Systemstatus from './systemstatus.vue'
-import WhyChooseMe from './whyChooseme.vue'
 </script>
 
 <template>
@@ -329,7 +328,6 @@ import WhyChooseMe from './whyChooseme.vue'
         <Projects />
         <DeveloperExperience />
         <Systemstatus />
-        <WhyChooseMe />
       </div>
     </div>
   </section>

@@ -1,7 +1,13 @@
 <script>
-import WhyChooseMe from './whyChooseme.vue'
+// 1. Ensure the file path matches exactly (check if it is 'whyChooseMe.vue' or 'WhyChooseMe.vue')
+import WhyChooseMe from './whyChooseMe.vue'
+
 export default {
   name: 'ModernServices',
+  // 2. You MUST register the component here
+  components: {
+    WhyChooseMe,
+  },
   data() {
     return {
       services: [
@@ -9,13 +15,11 @@ export default {
           id: 'web-dev',
           title: 'Web',
           subtitle: 'Development',
-          description:
-            'I provide comprehensive web development services, including website creation, responsive design, e-commerce development, web application development, SEO, maintenance, analytics, and hosting.',
+          description: 'I provide comprehensive web development services...',
           accent: 'emerald',
           expanded: false,
           iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
         },
-        //
       ],
     }
   },
@@ -26,9 +30,8 @@ export default {
         service.expanded = !service.expanded
       }
     },
-    // IMPORTANT: This handles the text slicing logic
     getServiceDescription(service) {
-      const limit = 75 // Number of characters to show when collapsed
+      const limit = 75
       if (service.expanded) {
         return service.description
       }
@@ -37,7 +40,6 @@ export default {
   },
 }
 </script>
-
 <template>
   <section
     id="service"
@@ -119,8 +121,8 @@ export default {
         </div>
       </div>
     </div>
+    <WhyChooseMe />
   </section>
-  <WhyChooseMe />
 </template>
 
 <style scoped>
