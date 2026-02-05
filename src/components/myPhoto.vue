@@ -30,7 +30,6 @@ onMounted(() => {
     vx: number
     vy: number
   }> = []
-
   const handleMouseMove = (e: MouseEvent) => {
     if (!imageContainer.value) return
     const rect = imageContainer.value.getBoundingClientRect()
@@ -42,9 +41,10 @@ onMounted(() => {
         x: mouseX,
         y: mouseY,
         size: 40 + Math.random() * 60,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        // ADDED THE '!' HERE TO FIX THE ERROR
+        color: colors[Math.floor(Math.random() * colors.length)]!,
         opacity: 0.5,
-        vx: (Math.random() - 0.5) * 2, // Slow drift
+        vx: (Math.random() - 0.5) * 2,
         vy: (Math.random() - 0.5) * 2,
       })
       if (blobs.length > 25) blobs.shift()

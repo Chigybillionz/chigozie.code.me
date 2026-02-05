@@ -6,6 +6,11 @@ import Socials from './socials.vue'
 import Projects from './project.vue'
 import DeveloperExperience from './developerExperience.vue'
 import Systemstatus from './systemstatus.vue'
+import Testimonials from './Testimonila.vue'
+import Certifcations from './certifcations.vue'
+import Internship from './internship.vue'
+import LetsBuild from './letsBuild.vue'
+import Footer from './footer.vue'
 </script>
 
 <template>
@@ -328,6 +333,11 @@ import Systemstatus from './systemstatus.vue'
         <Projects />
         <DeveloperExperience />
         <Systemstatus />
+        <Testimonials />
+        <Certifcations />
+        <Internship />
+        <LetsBuild />
+        <Footer />
       </div>
     </div>
   </section>
