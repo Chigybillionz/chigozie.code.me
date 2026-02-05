@@ -46,7 +46,7 @@ const features = [
             >
           </div>
 
-          <h2 class="text-6xl md:text-8xl font-syne font-bold italic tracking-tighter text-white">
+          <h2 class="text-4xl md:text-8xl font-syne font-bold italic tracking-tighter text-white">
             Clean Code <span class="text-neutral-700 font-thin not-italic">&</span> Maintainability
           </h2>
 
@@ -144,7 +144,7 @@ const features = [
             </div>
             <div class="relative">
               <img
-                src="/public/codesample.png"
+                src="/codesample.png"
                 alt="Code Illustration"
                 class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-700"
               />
