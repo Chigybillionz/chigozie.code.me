@@ -177,7 +177,7 @@ const prev = () => {
                   >
                     Duration
                   </h4> -->
-                  <p class="text-white text-lg font-syne">{{ item.duration }}</p>
+                  <p class="text-white text-lg font-syne">{{ item.outcome }}</p>
                 </div>
                 <div class="space-y-1">
                   <h4

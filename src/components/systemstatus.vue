@@ -30,8 +30,8 @@ const updateTime = () => {
 
   // split handles the "03:27:15 PM" format
   const [time, period] = timeString.split(' ')
-  currentTime.value = time
-  amPm.value = period
+  currentTime.value = time || ''
+  amPm.value = period || ''
 }
 
 // Fixed the timer type to work with browser intervals
