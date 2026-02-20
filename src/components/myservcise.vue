@@ -43,10 +43,10 @@ export default {
 <template>
   <section
     id="service"
-    class="min-h-screen w-full py-12 sm:py-20 px-0 sm:px-6 font-sans antialiased"
+    class="min-h-screen w-full py-8 md:py-12 lg:py-20 px-0 sm:px-6 font-sans antialiased"
   >
     <div
-      class="max-w-7xl mx-auto rounded-2 sm:rounded-[4rem] md:rounded-[6rem] py-16 sm:py-24 px-6 sm:px-12 border-y sm:border border-white/5 relative overflow-hidden"
+      class="max-w-7xl mx-auto rounded-2 sm:rounded-[2rem] md:rounded-[4rem] lg:rounded-[6rem] py-12 md:py-16 lg:py-24 px-4 sm:px-8 md:px-12 border-y sm:border border-white/5 relative overflow-hidden"
     >
       <div class="space-y-4 relative z-10">
         <div
