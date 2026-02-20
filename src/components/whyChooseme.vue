@@ -53,7 +53,7 @@ const scroll = (direction) => {
             >
           </div>
           <h2
-            class="text-4xl md:text-6xl font-syne font-bold italic text-white tracking-tighter uppercase leading-[0.85]"
+            class="text-4xl lg:text-6xl font-syne font-bold italic text-white tracking-tighter uppercase leading-[0.85]"
           >
             Core <span class="text-neutral-600">Strengths</span>
           </h2>

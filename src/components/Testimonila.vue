@@ -35,7 +35,7 @@ const testimonials = [
 </script>
 
 <template>
-  <section class="py-24 overflow-hidden relative z-20 bg-neutral-950">
+  <section class="py-24 overflow-hidden relative z-20 bg-neutral-950 rounded-3xl">
     <div class="lg:container mx-auto px-4 mb-16">
       <div class="text-center space-y-4">
         <div
@@ -44,7 +44,7 @@ const testimonials = [
           Testimonials
         </div>
         <h2
-          class="text-4xl md:text-7xl uppercase italic font-thin text-white/80 font-syne tracking-tighter"
+          class="text-4xl lg:text-7xl uppercase italic font-thin text-white/80 font-syne tracking-tighter"
         >
           Trust from <span class="text-neutral-500">Clients</span>
         </h2>

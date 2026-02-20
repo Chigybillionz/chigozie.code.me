@@ -1,10 +1,26 @@
 <script setup>
 import { ref } from 'vue'
+
+const technologies = ref([
+  { name: 'Vue.js', color: 'from-emerald-500/20 to-emerald-900/20' },
+  { name: 'Tailwind', color: 'from-sky-500/20 to-sky-900/20' },
+  { name: 'TypeScript', color: 'from-blue-500/20 to-blue-900/20' },
+  { name: 'Node.js', color: 'from-green-500/20 to-green-900/20' },
+])
+
+const downloadCV = () => {
+  const link = document.createElement('a')
+  link.href = '/mee.pdf'
+  link.download = 'Okorie_Chigozie_CV.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 </script>
 
 <template>
   <div
-    class="relative w-full overflow-hidden rounded-[3rem] border border-white/10 bg-neutral-900/20 px-8 py-16 md:px-12"
+    class="relative w-full overflow-hidden rounded-2xl md:rounded-3xl lg:rounded-[3rem] border border-white/10 bg-neutral-900/20 px-4 md:px-8 lg:px-12 py-12 md:py-14 lg:py-16"
   >
     <div
       class="absolute inset-0 z-0 opacity-20 [mask-image:radial-gradient(ellipse_at_center,black,transparent)]"
@@ -18,23 +34,32 @@ import { ref } from 'vue'
       <div class="flex flex-col items-center justify-between gap-8 lg:flex-row lg:items-end">
         <div class="text-center lg:text-left">
           <div
-            class="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-500"
+            class="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-500"
           >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+              ></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+            </span>
             Available for Hire
           </div>
-          <h2 class="font-syne text-4xl font-bold italic tracking-tight text-white md:text-6xl">
+
+          <h2
+            class="font-syne text-4xl font-bold italic tracking-tight text-white lg:text-6xl lg:leading-[1.1]"
+          >
             Let's build <span class="text-neutral-500 font-thin italic">something</span><br />
             extraordinary.
           </h2>
         </div>
 
         <div
-          class="flex flex-wrap items-center justify-center gap-3 rounded-[2rem] border border-white/5 bg-white/[0.03] p-2 backdrop-blur-xl"
+          class="flex flex-wrap items-center justify-center gap-3 rounded-[2.5rem] border border-white/5 bg-white/[0.03] p-3 backdrop-blur-xl"
         >
           <a
             href="https://github.com/chigybillionz"
             target="_blank"
-            class="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-neutral-400 transition-all hover:border-white hover:text-white hover:bg-white/5"
+            class="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-neutral-400 transition-all hover:border-white hover:bg-white/5 hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +78,11 @@ import { ref } from 'vue'
               <path d="M9 18c-4.51 2-5-2-7-2" />
             </svg>
           </a>
+
           <a
-            href="#"
+            href="https://www.linkedin.com/in/okorie-chigozie-jehoshaphat-4b255526b/"
             target="_blank"
-            class="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-neutral-400 transition-all hover:border-blue-400 hover:text-blue-400 hover:bg-blue-400/5"
+            class="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-neutral-400 transition-all hover:border-blue-400 hover:bg-blue-400/5 hover:text-blue-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,11 +102,12 @@ import { ref } from 'vue'
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
+
           <a
             href="mailto:f.okoriechigozie99@gmail.com"
-            class="flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 text-sm font-bold text-neutral-400 transition-all hover:border-red-400 hover:text-red-400 hover:bg-red-400/5"
+            class="group flex items-center gap-3 rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-widest text-neutral-400 transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-white"
           >
-            <span class="hidden sm:inline">Get in touch</span>
+            <span>Get in touch</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -91,6 +118,7 @@ import { ref } from 'vue'
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
+              class="transition-transform group-hover:rotate-12"
             >
               <rect width="20" height="16" x="2" y="4" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -99,36 +127,33 @@ import { ref } from 'vue'
         </div>
       </div>
 
-      <div
-        class="flex flex-col items-center justify-center gap-6 pt-8 border-t border-white/5 sm:flex-row"
-      >
-        <a href="mailto:f.nafiziqbal@gmail.com" class="group/main relative h-14 min-w-[220px]">
+      <div class="flex flex-wrap justify-center gap-3 lg:justify-start">
+        <div
+          v-for="tech in technologies"
+          :key="tech.name"
+          class="group/tag relative overflow-hidden rounded-xl border border-white/5 bg-white/[0.03] px-4 py-2 transition-all hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.08]"
+        >
           <div
-            class="absolute inset-0 rounded-full bg-emerald-500 blur-md opacity-20 group-hover:opacity-40 transition-opacity"
+            :class="[
+              'absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity group-hover/tag:opacity-100',
+              tech.color,
+            ]"
           ></div>
-          <div
-            class="relative flex h-full items-center justify-center gap-3 rounded-full bg-emerald-500 px-8 text-sm font-black uppercase tracking-widest text-black transition-transform active:scale-95 group-hover:-translate-y-1"
+          <span
+            class="relative z-10 text-sm font-medium text-neutral-400 transition-colors group-hover/tag:text-white"
           >
-            <span>Start a Project</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
-            </svg>
-          </div>
-        </a>
+            {{ tech.name }}
+          </span>
+        </div>
+      </div>
 
+      <div
+        class="flex flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 sm:flex-row"
+      >
+        <p class="text-sm text-neutral-500">click the button to download my CV</p>
         <button
-          class="h-14 min-w-[200px] rounded-full border border-white/10 bg-transparent px-8 text-sm font-bold text-white transition-all hover:bg-white hover:text-black"
+          class="h-12 min-w-[180px] rounded-full border border-white/10 bg-white/5 px-8 text-sm font-bold text-white transition-all hover:bg-white hover:text-black active:scale-95"
+          @click="downloadCV"
         >
           Download CV
         </button>

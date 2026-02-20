@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import Photo from './myPhoto.vue'
-import About from './about.vue'
+import About from './about.fixed.vue'
 
 const count = ref(0)
 </script>
@@ -9,8 +9,6 @@ const count = ref(0)
 <template>
   <Photo />
   <About />
-
-  <!-- <button @click="count++">Clicked {{ count }} times.</button> -->
 </template>
 
 <style scoped></style>

@@ -98,7 +98,7 @@ onMounted(() => {
     ></div>
 
     <div
-      class="relative z-10 w-full bg-neutral-950 py-20 px-10 md:px-20 overflow-hidden rounded-[calc(4rem-2px)]"
+      class="relative z-10 w-full bg-neutral-950 py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-20 overflow-hidden rounded-[calc(4rem-2px)]"
     >
       <div
         class="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-[500px] bg-[radial-gradient(circle_at_center,_#FACC1508_0%,_transparent_70%)] blur-[120px]"
@@ -111,10 +111,12 @@ onMounted(() => {
       <div class="absolute bottom-8 left-12 h-2 w-2 rounded-full bg-emerald-500/40"></div>
       <div class="absolute bottom-8 right-12 h-2 w-2 rounded-full bg-white/10"></div>
 
-      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+      <div
+        class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 px-4 md:px-8"
+      >
         <div
           ref="imageContainer"
-          class="relative group/img w-full max-w-[400px] aspect-[4/5] overflow-hidden rounded-[3rem] border border-white/10 bg-neutral-900 shadow-2xl transition-all duration-700"
+          class="relative group/img w-full max-w-[350px] md:max-w-[300px] lg:max-w-[400px] aspect-[4/5] overflow-hidden rounded-[3rem] border border-white/10 bg-neutral-900 shadow-2xl transition-all duration-700"
         >
           <img
             src="/myphoto.jpg"
@@ -142,6 +144,4 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-/* Any specific CSS can go here, but Tailwind handles most of it */
-</style>
+<style scoped></style>

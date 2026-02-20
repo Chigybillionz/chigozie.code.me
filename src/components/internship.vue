@@ -4,7 +4,7 @@ import { ref } from 'vue'
 interface Internship {
   company: string
   role: string
-  duration: string
+  // duration: string
   outcome: string
   description: string
   image: string
@@ -14,8 +14,8 @@ interface Internship {
 const internships: Internship[] = [
   {
     company: 'InfoAssure',
-    role: 'Frontend Intern',
-    duration: 'June 2024 — Aug 2024',
+    role: 'Infoassure Intern',
+    // duration: 'June 2025 — dec 2025',
     outcome: 'Full Commendation',
     description:
       'Collaborated with the engineering team to build secure, user-centric interfaces. Focused on translating complex requirements into clean, scalable Vue.js components.',
@@ -23,9 +23,9 @@ const internships: Internship[] = [
     skills: ['Vue.js', 'Tailwind CSS', 'Security UI', 'Agile'],
   },
   {
-    company: 'Second Company Name', // Replace with your 2nd internship details
-    role: 'UI Developer Intern',
-    duration: 'Sept 2024 — Dec 2024',
+    company: 'Trueminds innovations', // Replace with your 2nd internship details
+    role: 'trueminds innovations Intern',
+    // duration: 'jan 2026 — Mar 2024',
     outcome: 'Project Lead',
     description:
       'Led the frontend refactor of the internal dashboard, improving load speeds by 40% and implementing a cohesive design system.',
@@ -46,7 +46,7 @@ const prev = () => {
 </script>
 
 <template>
-  <section class="py-24 bg-neutral-950 overflow-hidden">
+  <section class="py-24 bg-neutral-950 overflow-hidden rounded-3xl">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between items-center mb-12">
         <div class="flex items-center gap-4">
@@ -56,7 +56,7 @@ const prev = () => {
           >
         </div>
 
-        <div class="flex gap-2">
+        <div class="flex flex-col gap-2">
           <button
             @click="prev"
             class="p-3 rounded-full border border-white/5 hover:bg-white/10 text-white transition-all"
@@ -150,10 +150,12 @@ const prev = () => {
             <div class="lg:col-span-6 space-y-10">
               <div class="space-y-6">
                 <h2
-                  class="text-5xl md:text-7xl font-syne font-bold text-white tracking-tighter leading-none uppercase italic"
+                  class="text-3xl lg:text-7xl font-syne font-bold text-white tracking-tighter leading-none uppercase italic"
                 >
                   {{ item.role.split(' ')[0] }} <br />
-                  <span class="text-neutral-600">{{ item.role.split(' ')[1] }}</span>
+                  <span class="text-neutral-600">
+                    {{ item.role.split(' ').slice(1).join(' ') }}
+                  </span>
                 </h2>
                 <p class="text-xl text-neutral-400 font-light leading-relaxed">
                   {{ item.description }}
@@ -170,11 +172,11 @@ const prev = () => {
                   <p class="text-white text-lg font-syne">{{ item.company }}</p>
                 </div>
                 <div class="space-y-1">
-                  <h4
+                  <!-- <h4
                     class="text-emerald-500 font-bold uppercase text-[10px] tracking-[0.2em] font-mono"
                   >
                     Duration
-                  </h4>
+                  </h4> -->
                   <p class="text-white text-lg font-syne">{{ item.duration }}</p>
                 </div>
                 <div class="space-y-1">

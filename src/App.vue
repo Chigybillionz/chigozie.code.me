@@ -4,7 +4,7 @@ import Counter from './components/button.vue'
 
 <template>
   <div
-    class="min-h-screen w-full bg-[url('/image.png')] dark:bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center p-4"
+    class="min-h-screen w-full bg-[url('/image.png')] dark:bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center p-3 md:p-4 lg:p-6"
   >
     <Counter />
   </div>

@@ -18,7 +18,7 @@ const certifications: Certification[] = [
     image: '/certifactions_images/Gidabootcamp.png',
     color: 'from-blue-600/20',
     description:
-      'Intensive immersion into modern React ecosystems, state management, and responsive design patterns.',
+      'Intensive learning at the GIDA bootcamp, mastering modern frontend frameworks, responsive design, and best practices for building dynamic user interfaces.',
   },
   {
     title: 'Frontend development at Genesy upskill 2.0',
@@ -27,7 +27,7 @@ const certifications: Certification[] = [
     image: '/certifactions_images/Genesy.jpeg',
     color: 'from-emerald-600/20',
     description:
-      'Advanced specialization in component architecture, performance optimization, and scalable CSS strategies.',
+      'Advanced specialization in component-based architecture, state management, and performance optimization through the Genesy upskill 2.0 program.',
   },
 ]
 
@@ -43,7 +43,7 @@ const prev = () => {
 </script>
 
 <template>
-  <section class="py-24 bg-neutral-950 overflow-hidden">
+  <section class="py-24 bg-neutral-950 overflow-hidden rounded-3xl">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
         <div class="space-y-4">
@@ -59,7 +59,7 @@ const prev = () => {
             Learning Path
           </div>
           <h2
-            class="text-5xl md:text-8xl font-syne font-bold text-white uppercase italic tracking-tighter"
+            class="text-5xl lg:text-6xl font-syne font-bold text-white uppercase italic tracking-tighter"
           >
             Verified <span class="text-neutral-700">Skills</span>
           </h2>
@@ -147,7 +147,7 @@ const prev = () => {
                 <p class="text-emerald-500 font-mono font-bold tracking-[0.2em] uppercase text-sm">
                   Issued by {{ cert.issuer }}
                 </p>
-                <h3 class="text-4xl md:text-6xl font-syne font-bold text-white leading-tight">
+                <h3 class="text-4xl lg:text-6xl font-syne font-bold text-white leading-tight">
                   {{ cert.title }}
                 </h3>
               </div>
@@ -159,7 +159,7 @@ const prev = () => {
                 <div class="h-[1px] flex-1 bg-gradient-to-r from-neutral-800 to-transparent"></div>
               </div>
 
-              <p class="text-neutral-400 text-lg leading-relaxed italic">
+              <p class="text-neutral-400 text-lg leading-relaxed italic" contenteditable="false">
                 "{{ cert.description }}"
               </p>
 
