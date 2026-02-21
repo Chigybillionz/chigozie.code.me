@@ -1,0 +1,22 @@
+# 1. Ignore everything by default
+/*
+
+# 2. ALLOW these folders (Keep the trailing slash)
+!/public/
+!/src/
+
+# 3. ALLOW these essential configuration files
+!/index.html
+!/package.json
+!/package-lock.json
+!/vite.config.*
+!/tsconfig.*
+!/postcss.config.*
+!/tailwind.config.*
+
+# 4. Standard ignores (Safety net)
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
