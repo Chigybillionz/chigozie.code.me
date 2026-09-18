@@ -1,38 +1,36 @@
 <script setup>
 const projects = [
   {
-    name: 'Emerald Restaurants',
-    description: 'A premium culinary ecosystem for Thai Emerald and group brands.',
-    tags: ['Next.js', 'Tailwind', 'Framer Motion'],
-    img: '/backgroundimage.jpeg',
+    name: 'MarketPulse AI',
+    description: 'Voice-first bookkeeping and AI-powered intelligence engine tracking sales, expenses, and real-time profits.',
+    tags: ['React', 'Voice AI', 'Tailwind', 'Web Audio'],
+    img: '/marketpulse.png',
     color: 'emerald',
-    liveLink: '/mee.pdf', //am replacing this with my live link to the project
+    liveLink: 'https://marketpulse-kohl.vercel.app/',
   },
   {
     name: 'Private Exams UK',
     description: 'Exam registration & academic support made easy and affordable.',
     tags: ['React', 'OpenAI', 'Node.js'],
-    img: '/backgroundimage.jpeg',
+    img: '/ee.png',
     color: 'blue',
-    liveLink: '/ee.png', //am replacing this with my live link to the project
+    liveLink: '#',
   },
   {
     name: 'Attainment Academy',
     description: 'A dynamic and enriching educational experience for modern students.',
     tags: ['Next.js', 'Postgres', 'Tailwind'],
-    img: '/i.png',
+    img: '/eee.png',
     color: 'purple',
-    liveLink: '/eee.png', //am replacing this with my live link to the project
-  },
-  {
-    name: 'VidSage',
-    description: 'Effortless AI-powered video renaming and organization for Google Drive.',
-    tags: ['React', 'OpenAI', 'Python'],
-    img: '/myphoto.jpg',
-    color: 'orange',
-    liveLink: '/i.png', //am replacing this with my live link to the project
+    liveLink: '#',
   },
 ]
+
+const baseUrl = import.meta.env.BASE_URL || '/'
+const resolveAsset = (path) => {
+  if (!path || path.startsWith('http') || path.startsWith('data:')) return path
+  return `${baseUrl}${path.replace(/^\//, '')}`
+}
 </script>
 
 <template>
@@ -94,8 +92,9 @@ const projects = [
                   class="relative w-full lg:w-48 lg:h-40 aspect-video lg:aspect-auto shrink-0 overflow-hidden rounded-lg md:rounded-2xl lg:rounded-[3rem] border border-white/10 bg-neutral-800"
                 >
                   <img
-                    :src="project.img"
-                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                    :src="resolveAsset(project.img)"
+                    :alt="project.name"
+                    class="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   />
                 </div>
               </div>
