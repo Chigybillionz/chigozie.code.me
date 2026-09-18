@@ -9,12 +9,12 @@ const projects = [
     liveLink: 'https://marketpulse-kohl.vercel.app/',
   },
   {
-    name: 'Private Exams UK',
-    description: 'Exam registration & academic support made easy and affordable.',
-    tags: ['React', 'OpenAI', 'Node.js'],
-    img: '/ee.png',
+    name: 'Launchpad',
+    description: 'AI-powered opportunity discovery and career readiness platform connecting talent with curated roles and hackathons.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
+    img: '/launchpad.png',
     color: 'blue',
-    liveLink: '#',
+    liveLink: 'https://launchpad-iota-seven.vercel.app/',
   },
   {
     name: 'Attainment Academy',
