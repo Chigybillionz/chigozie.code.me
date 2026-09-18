@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/chigozie.code.me/',
+  base: process.env.VERCEL ? '/' : '/chigozie.code.me/',
 
   plugins: [vue(), tailwindcss()],
   resolve: {
