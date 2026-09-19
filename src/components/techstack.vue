@@ -9,6 +9,7 @@ const technologies = [
   { name: 'Laravel', color: 'from-red-500/20' },
   { name: 'Tailwind', color: 'from-cyan-400/20' },
   { name: 'MYSQL', color: 'from-blue-500/60' },
+  { name: 'REST APIs', color: 'from-teal-400/20' },
 ]
 </script>
 

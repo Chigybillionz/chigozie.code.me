@@ -17,6 +17,14 @@ const projects = [
     liveLink: 'https://launchpad-iota-seven.vercel.app/',
   },
   {
+    name: 'InfoAssure Attendance',
+    description: 'Enterprise attendance tracking and workforce management platform featuring real-time analytics, automated shift logs, and role-based administration.',
+    tags: ['Vue.js', 'Laravel', 'Tailwind', 'MySQL', 'REST API'],
+    img: '/attendance.png',
+    color: 'emerald',
+    liveLink: 'https://attendance-sytem.vercel.app/login?redirect=/dashboard',
+  },
+  {
     name: 'Attainment Academy',
     description: 'A dynamic and enriching educational experience for modern students.',
     tags: ['Next.js', 'Postgres', 'Tailwind'],
