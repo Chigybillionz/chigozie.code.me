@@ -2,7 +2,7 @@
 import { FileDown, Terminal, MapPin, CheckCircle2 } from 'lucide-vue-next'
 
 const highlights = [
-  'Fullstack Engineering: Vue.js, React, TypeScript, and Laravel architectures.',
+  'Fullstack Engineering: Vue.js, React, TypeScript, and Node.js architectures.',
   'Performance-first: Sub-second load times, smooth transitions, and clean code.',
   'Clean API Design: Structured REST APIs, database schemas, and microservice integration.',
 ]
@@ -29,7 +29,7 @@ const highlights = [
             Hey! I'm <strong class="text-white">Okorie Chigozie</strong>, a Fullstack Software Engineer based in Lagos, Nigeria. I build resilient, performant web applications and software systems that translate complex user needs into effortless digital experiences.
           </p>
           <p class="text-neutral-400 text-sm sm:text-base">
-            Whether I'm engineering reactive frontends in Vue.js and React, architecting scalable backend APIs in Laravel and Node.js, or optimizing production deployments, I obsess over quality, security, and developer craftsmanship.
+            Whether I'm engineering reactive frontends in Vue.js and React, architecting scalable backend APIs in Node.js and Express, or optimizing production deployments, I obsess over quality, security, and developer craftsmanship.
           </p>
         </div>
 

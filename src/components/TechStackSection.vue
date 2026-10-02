@@ -17,12 +17,12 @@ const categories = [
   {
     title: 'Backend & Systems',
     skills: [
-      { name: 'Laravel (PHP)', level: 'Advanced', icon: '🔴' },
-      { name: 'Node.js', level: 'Proficient', icon: '🌿' },
+      { name: 'Node.js', level: 'Advanced', icon: '🌿' },
+      { name: 'Express.js', level: 'Advanced', icon: '⚡' },
       { name: 'REST APIs', level: 'Expert', icon: '🔌' },
       { name: 'MySQL', level: 'Advanced', icon: '🐬' },
       { name: 'PostgreSQL', level: 'Proficient', icon: '🐘' },
-      { name: 'Solidity', level: 'Intermediate', icon: '⛓️' },
+      { name: 'MongoDB / DB', level: 'Proficient', icon: '🍃' },
     ],
   },
   {
@@ -41,7 +41,7 @@ const categories = [
 const codeSnippet = `const developer = {
   name: "Okorie Chigozie",
   title: "Fullstack Software Engineer",
-  primaryStack: ["Vue.js", "TypeScript", "Laravel", "Tailwind"],
+  primaryStack: ["Vue.js", "React.js", "TypeScript", "Node.js", "Tailwind"],
   focus: "Resilient systems, clean code & intuitive UX",
   availableForHire: true,
   contact: () => "f.okoriechigozie99@gmail.com"
@@ -137,8 +137,9 @@ const copySnippet = () => {
   <span class="text-neutral-400">title:</span> <span class="text-emerald-400">"Fullstack Engineer"</span>,
   <span class="text-neutral-400">primaryStack:</span> [
     <span class="text-sky-400">"Vue.js"</span>, 
+    <span class="text-sky-400">"React.js"</span>, 
     <span class="text-sky-400">"TypeScript"</span>, 
-    <span class="text-sky-400">"Laravel"</span>,
+    <span class="text-sky-400">"Node.js"</span>,
     <span class="text-sky-400">"Tailwind"</span>
   ],
   <span class="text-neutral-400">location:</span> <span class="text-emerald-400">"Lagos, Nigeria"</span>,

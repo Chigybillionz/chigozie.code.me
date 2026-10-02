@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Github, Linkedin, Mail, Twitter, Youtube, ExternalLink } from 'lucide-vue-next'
+import { Github, Linkedin, Mail, Twitter, ExternalLink } from 'lucide-vue-next'
+import AvailabilityCard from './AvailabilityCard.vue'
 
 const socials = [
   {
@@ -20,12 +21,6 @@ const socials = [
     url: 'https://www.linkedin.com/in/okorie-chigozie-jehoshaphat-4b255526b/',
     icon: Linkedin,
     hoverClass: 'hover:text-blue-400 hover:border-blue-400/40',
-  },
-  {
-    name: 'YouTube',
-    url: 'https://youtube.com',
-    icon: Youtube,
-    hoverClass: 'hover:text-red-400 hover:border-red-400/40',
   },
   {
     name: 'Email',
@@ -67,7 +62,7 @@ const socials = [
 
     <!-- Profile Avatar Overlapping the Bottom of the Banner -->
     <div class="relative px-2 sm:px-4">
-      <div class="relative -mt-16 sm:-mt-20 md:-mt-24 mb-4 sm:mb-6 flex items-end justify-between">
+      <div class="relative -mt-16 sm:-mt-20 md:-mt-24 mb-4 sm:mb-6 flex flex-wrap sm:flex-nowrap items-end justify-between gap-4">
         <div class="relative">
           <!-- Circular Avatar with Border Ring -->
           <div
@@ -99,10 +94,7 @@ const socials = [
         </div>
 
         <!-- Available Badge on Right Side -->
-        <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>Available for roles & freelance</span>
-        </div>
+        <AvailabilityCard />
       </div>
 
       <!-- Identity & Subtitle -->
@@ -121,13 +113,16 @@ const socials = [
           <span class="text-neutral-600 font-bold">·</span>
           <span>Vue.js</span>
           <span class="text-neutral-600 font-bold">·</span>
-          <span>Laravel</span>
+          <span>React.js</span>
           <span class="text-neutral-600 font-bold">·</span>
           <span>TypeScript</span>
           <span class="text-neutral-600 font-bold">·</span>
           <span>Tailwind</span>
           <span class="text-neutral-600 font-bold">·</span>
-          <span>Solidity</span>
+          <span>Node.js</span>
+          <span class="text-neutral-600 font-bold">·</span>
+          <span>Express.js</span>
+          <span class="text-neutral-600 font-bold">·</span>
           <span>👨‍💻</span>
         </p>
 
