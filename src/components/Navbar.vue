@@ -51,6 +51,7 @@ onUnmounted(() => {
       <a
         href="/mee.pdf"
         target="_blank"
+        download="Okorie_Chigozie_Resume.pdf"
         class="px-2.5 sm:px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors font-medium items-center gap-1 hidden md:inline-flex"
       >
         <FileDown class="w-3.5 h-3.5" />

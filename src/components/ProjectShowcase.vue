@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import { ExternalLink, Github } from 'lucide-vue-next'
 import ShowcaseBadge from './ShowcaseBadge.vue'
 
@@ -10,7 +11,7 @@ const projects = [
     tags: ['React', 'Voice AI', 'Tailwind CSS', 'Web Audio API'],
     img: '/marketpulse.png',
     liveLink: 'https://marketpulse-kohl.vercel.app/',
-    githubLink: 'https://github.com/chigybillionz',
+    githubLink: 'https://github.com/Chigybillionz/marketpulse.git',
     featured: true,
   },
   {
@@ -20,7 +21,7 @@ const projects = [
     tags: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
     img: '/launchpad.png',
     liveLink: 'https://launchpad-iota-seven.vercel.app/',
-    githubLink: 'https://github.com/chigybillionz',
+    githubLink: 'https://github.com/Chigybillionz/launchpad.git',
     featured: true,
   },
   {
@@ -30,7 +31,7 @@ const projects = [
     tags: ['Vue.js', 'Laravel', 'REST API', 'MySQL'],
     img: '/attendance.png',
     liveLink: 'https://attendance-sytem.vercel.app/login?redirect=/dashboard',
-    githubLink: 'https://github.com/chigybillionz',
+    githubLink: 'https://github.com/Chigybillionz/attendance_sytem.git',
     featured: false,
   },
   {
@@ -44,6 +45,103 @@ const projects = [
     featured: false,
   },
 ]
+
+const cardRefs = ref<(HTMLElement | null)[]>([])
+const isMobile = ref(false)
+const cardStyles = ref<{ scale: number; brightness: number; opacity: number }[]>([])
+
+const setCardRef = (el: any, index: number) => {
+  if (el) cardRefs.value[index] = el
+}
+
+let ticking = false
+const updateStackingEffects = () => {
+  if (!isMobile.value || cardRefs.value.length === 0) return
+
+  const total = projects.length
+  const topStickyBase = 84 // px offset below mobile floating navbar
+  const stepOffset = 12 // px offset per stacked card
+  const distanceWindow = 320 // px window over which docking animation interpolates
+
+  // Calculate arrival progress (0 to 1) for each card docking into sticky position
+  const progressList = projects.map((_, i) => {
+    if (i === 0) return 1
+    const card = cardRefs.value[i]
+    if (!card) return 0
+    const rect = card.getBoundingClientRect()
+    const targetTop = topStickyBase + i * stepOffset
+    const currentDistance = rect.top - targetTop
+    const rawProgress = 1 - currentDistance / distanceWindow
+    return Math.max(0, Math.min(1, rawProgress))
+  })
+
+  // For each card, calculate cumulative depth from later cards docking over it
+  projects.forEach((_, i) => {
+    if (i === total - 1) {
+      // Topmost/last card stays unscaled & fully lit
+      cardStyles.value[i] = { scale: 1, brightness: 1, opacity: 1 }
+      return
+    }
+
+    let totalCoverProgress = 0
+    for (let j = i + 1; j < total; j++) {
+      totalCoverProgress += progressList[j] ?? 0
+    }
+
+    const scale = Math.max(0.88, 1 - totalCoverProgress * 0.045)
+    const brightness = Math.max(0.48, 1 - totalCoverProgress * 0.22)
+    const opacity = Math.max(0.72, 1 - totalCoverProgress * 0.12)
+
+    cardStyles.value[i] = { scale, brightness, opacity }
+  })
+}
+
+const handleScroll = () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      updateStackingEffects()
+      ticking = false
+    })
+    ticking = true
+  }
+}
+
+const checkMobile = () => {
+  const wasMobile = isMobile.value
+  isMobile.value = window.innerWidth < 768
+  if (isMobile.value) {
+    updateStackingEffects()
+  } else if (wasMobile) {
+    cardStyles.value = []
+  }
+}
+
+onMounted(() => {
+  checkMobile()
+  window.addEventListener('resize', checkMobile, { passive: true })
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  setTimeout(updateStackingEffects, 100)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkMobile)
+  window.removeEventListener('scroll', handleScroll)
+})
+
+const getCardStyle = (index: number) => {
+  if (!isMobile.value) return {}
+  const style = cardStyles.value[index]
+  const topStickyBase = 84
+  const stepOffset = 12
+
+  return {
+    top: `${topStickyBase + index * stepOffset}px`,
+    zIndex: 10 + index,
+    transform: style ? `scale(${style.scale.toFixed(3)})` : undefined,
+    filter: style ? `brightness(${style.brightness.toFixed(3)})` : undefined,
+    opacity: style ? style.opacity.toFixed(3) : 1,
+  }
+}
 </script>
 
 <template>
@@ -66,13 +164,16 @@ const projects = [
       </div>
     </div>
 
-    <!-- 2-Column Staggered Masonry Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+    <!-- 2-Column Staggered Masonry Grid on Desktop / Sticky Stacking on Mobile -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 pb-8 sm:pb-0">
       <div
         v-for="(project, index) in projects"
         :key="project.name"
+        :ref="(el) => setCardRef(el, index)"
+        :style="getCardStyle(index)"
         :class="[
-          'group relative flex flex-col justify-between rounded-3xl border border-neutral-800/90 bg-neutral-900/40 backdrop-blur-md p-5 sm:p-6 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/70 hover:shadow-2xl hover:shadow-purple-950/20',
+          'group relative flex flex-col justify-between rounded-3xl border border-neutral-800 bg-[#0e0e12] sm:bg-neutral-900/40 backdrop-blur-md p-5 sm:p-6 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/70 hover:shadow-2xl hover:shadow-purple-950/20',
+          'max-md:sticky max-md:shadow-[0_-10px_30px_rgba(0,0,0,0.8),0_20px_25px_-5px_rgba(0,0,0,0.9)] max-md:origin-top',
           index % 2 === 1 ? 'md:translate-y-10' : ''
         ]"
       >

@@ -9,7 +9,7 @@ import FooterSection from './components/FooterSection.vue'
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#060607] text-white selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
+  <div class="min-h-screen bg-[#060607] text-white selection:bg-purple-600 selection:text-white relative overflow-x-clip">
     <!-- Subtle Ambient Background Light Accents (Pure CSS, lightning fast) -->
     <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-purple-600/5 blur-[160px] rounded-full pointer-events-none -z-10"></div>
     <div class="fixed bottom-0 right-0 w-[500px] h-[500px] bg-emerald-600/5 blur-[160px] rounded-full pointer-events-none -z-10"></div>

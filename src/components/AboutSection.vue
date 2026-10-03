@@ -49,7 +49,7 @@ const highlights = [
         <div class="pt-4 flex flex-wrap items-center gap-4">
           <a
             href="/mee.pdf"
-            download="Okorie_Chigozie_CV.pdf"
+            download="Okorie_Chigozie_Resume.pdf"
             class="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-neutral-900 border border-white/10 hover:border-white/30 text-white font-semibold text-sm transition-all hover:bg-neutral-800 hover:scale-105 active:scale-95 shadow-lg"
           >
             <FileDown class="w-4 h-4 text-purple-400" />
