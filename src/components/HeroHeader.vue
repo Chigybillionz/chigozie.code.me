@@ -24,7 +24,7 @@ const socials = [
   },
   {
     name: 'Email',
-    url: 'mailto:f.okoriechigozie99@gmail.com',
+    url: 'mailto:okoriechigozie99@gmail.com',
     icon: Mail,
     hoverClass: 'hover:text-emerald-400 hover:border-emerald-400/40',
   },

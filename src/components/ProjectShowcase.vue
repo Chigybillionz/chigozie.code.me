@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ExternalLink, Github, Sparkles } from 'lucide-vue-next'
+import { ExternalLink, Github } from 'lucide-vue-next'
+import ShowcaseBadge from './ShowcaseBadge.vue'
 
 const projects = [
   {
@@ -53,19 +54,16 @@ const projects = [
     ></div>
 
     <!-- Section Header -->
-    <div class="space-y-3 mb-12 sm:mb-16">
-      <div
-        class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-400 text-xs font-semibold"
-      >
-        <Sparkles class="w-3.5 h-3.5" />
-        <span>Project Showcase</span>
+    <div class="space-y-6 mb-12 sm:mb-16">
+      <ShowcaseBadge />
+      <div class="space-y-3">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          Thoughtfully crafted for quality.
+        </h2>
+        <p class="text-neutral-400 text-base sm:text-lg max-w-2xl">
+          A selection of digital products, fullstack platforms, and experiments engineered for performance, precision, and scale.
+        </p>
       </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-        Thoughtfully crafted for quality.
-      </h2>
-      <p class="text-neutral-400 text-base sm:text-lg max-w-2xl">
-        A selection of digital products, fullstack platforms, and experiments engineered for performance, precision, and scale.
-      </p>
     </div>
 
     <!-- 2-Column Staggered Masonry Grid -->

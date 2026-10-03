@@ -44,7 +44,7 @@ const codeSnippet = `const developer = {
   primaryStack: ["Vue.js", "React.js", "TypeScript", "Node.js", "Tailwind"],
   focus: "Resilient systems, clean code & intuitive UX",
   availableForHire: true,
-  contact: () => "f.okoriechigozie99@gmail.com"
+  contact: () => "okoriechigozie99@gmail.com"
 };`
 
 const copied = ref(false)
