@@ -64,10 +64,18 @@ const getCategoryCount = (cat: CategoryType) => {
   return projects.filter((p) => p.category.includes(cat)).length
 }
 
+const isSwitching = ref(false)
+
 const setCategory = (cat: CategoryType) => {
+  if (activeCategory.value === cat) return
   activeCategory.value = cat
   cardRefs.value = []
   cardStyles.value = []
+  isSwitching.value = true
+  setTimeout(() => {
+    isSwitching.value = false
+    updateStackingEffects()
+  }, 600)
   nextTick(() => {
     updateStackingEffects()
   })
@@ -152,6 +160,7 @@ const getCardStyle = (index: number) => {
     transform: style ? `scale(${style.scale.toFixed(3)})` : undefined,
     filter: style ? `brightness(${style.brightness.toFixed(3)})` : undefined,
     opacity: style ? style.opacity.toFixed(3) : 1,
+    animationDelay: `${index * 80}ms`,
   }
 }
 </script>
@@ -200,22 +209,27 @@ const getCardStyle = (index: number) => {
     <!-- Empty State when filtered count is 0 -->
     <div
       v-if="filteredProjects.length === 0"
-      class="rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/40 backdrop-blur-md p-10 sm:p-14 text-center space-y-4 max-w-2xl mx-auto shadow-sm transition-colors"
+      class="animate-empty-card rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/40 backdrop-blur-md p-8 sm:p-12 text-center space-y-5 max-w-xl mx-auto shadow-sm transition-colors"
     >
-      <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 mx-auto flex items-center justify-center text-2xl">
-        ⚡
+      <!-- Custom Coming Soon Hanging Sign Image -->
+      <div class="relative w-48 sm:w-56 mx-auto flex items-center justify-center">
+        <img
+          src="/coming-soon.png"
+          alt="Coming Soon"
+          class="w-full h-auto object-contain filter drop-shadow-[0_12px_24px_rgba(220,38,38,0.22)] hover:rotate-2 transition-transform duration-500 select-none"
+        />
       </div>
       <div class="space-y-2">
-        <h3 class="text-xl font-bold text-neutral-900 dark:text-white">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
           Dedicated {{ activeCategory }} Projects Coming Soon
         </h3>
         <p class="text-sm text-neutral-600 dark:text-neutral-400 max-w-md mx-auto leading-relaxed">
-          Currently, my featured products are complete fullstack architectures spanning modern frontend clients, reactive interfaces, and scalable backend services.
+          Currently, my featured products are complete fullstack architectures. Dedicated {{ activeCategory.toLowerCase() }}-focused projects will be uploaded soon.
         </p>
       </div>
       <button
         @click="setCategory('Fullstack')"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs sm:text-sm font-semibold transition-all transform hover:scale-105 active:scale-95 shadow-md shadow-purple-600/30 cursor-pointer"
+        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs sm:text-sm font-semibold transition-all transform hover:scale-105 active:scale-95 shadow-md shadow-purple-600/30 cursor-pointer"
       >
         <span>View Fullstack Projects (4)</span>
       </button>
@@ -225,12 +239,13 @@ const getCardStyle = (index: number) => {
     <div v-else class="flex flex-col gap-12 lg:gap-16 pb-8 sm:pb-0 mx-auto max-w-3xl">
       <div
         v-for="(project, index) in filteredProjects"
-        :key="project.name"
+        :key="project.name + activeCategory"
         :ref="(el) => setCardRef(el, index)"
         :style="getCardStyle(index)"
         :class="[
           'group relative flex flex-col md:flex-row justify-between gap-6 md:gap-8 lg:gap-12 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-[#0e0e12] sm:dark:bg-neutral-900/90 backdrop-blur-md p-5 sm:p-6 md:p-8 lg:p-10 transition-all duration-300 hover:border-purple-300 dark:hover:border-neutral-700 hover:bg-white dark:hover:bg-neutral-900/95 hover:shadow-2xl hover:shadow-purple-900/10 dark:hover:shadow-purple-950/20',
-          'sticky shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_-10px_30px_rgba(0,0,0,0.8),0_20px_25px_-5px_rgba(0,0,0,0.9)] origin-top'
+          'sticky shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_-10px_30px_rgba(0,0,0,0.8),0_20px_25px_-5px_rgba(0,0,0,0.9)] origin-top',
+          isSwitching ? 'card-incoming' : ''
         ]"
       >
         <!-- Pixel corner accent dot -->
@@ -305,3 +320,42 @@ const getCardStyle = (index: number) => {
     </div>
   </section>
 </template>
+
+<style scoped>
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(45px) scale(0.96);
+  }
+  65% {
+    opacity: 0.95;
+    transform: translateY(-3px) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-incoming {
+  animation: cardSlideIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes emptyCardPop {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.94);
+  }
+  65% {
+    transform: translateY(-4px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-empty-card {
+  animation: emptyCardPop 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+</style>
