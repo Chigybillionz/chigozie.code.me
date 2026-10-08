@@ -27,11 +27,11 @@ const categories = [
   {
     title: 'DevOps & Tooling',
     skills: [
-      { name: 'Git & GitHub', level: 'Expert', icon: '🐙' },
-      { name: 'Vite', level: 'Expert', icon: '⚡' },
-      { name: 'Vercel / CI/CD', level: 'Advanced', icon: '🚀' },
-      { name: 'Postman', level: 'Advanced', icon: '📮' },
-      { name: 'Linux / Bash', level: 'Proficient', icon: '💻' },
+      { name: 'Git & GitHub', level: 'Expert', icon: '<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" alt="Git" class="w-full h-full object-contain" />' },
+      { name: 'Vite', level: 'Expert', icon: '<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="Vite" class="w-full h-full object-contain" />' },
+      { name: 'Vercel / CI/CD', level: 'Advanced', icon: '<svg viewBox="0 0 256 222" width="24" height="24" fill="white"><path d="M128 0l128 221.7H0z"/></svg>' },
+      { name: 'Postman', level: 'Advanced', icon: '<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman" class="w-full h-full object-contain" />' },
+      { name: 'Linux / Bash', level: 'Proficient', icon: '<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash" class="w-full h-full object-contain" />' },
       { name: 'Web Audio / AI', level: 'Hands-on', icon: '🎙️' },
     ],
   },
