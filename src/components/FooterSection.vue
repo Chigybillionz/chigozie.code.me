@@ -17,7 +17,6 @@ const currentYear = new Date().getFullYear()
       </div>
 
       <div class="flex items-center gap-6">
-        <span>Crafted with Vue.js & Tailwind</span>
         <button
           @click="scrollToTop"
           class="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition-colors"

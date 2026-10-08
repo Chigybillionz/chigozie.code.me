@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { ArrowUpRight, FileDown } from 'lucide-vue-next'
+import { isResumeModalOpen } from '../composables/useResumeModal'
 
 const isScrolled = ref(false)
 
@@ -48,15 +49,13 @@ onUnmounted(() => {
       >
         Stack
       </a>
-      <a
-        href="/mee.pdf"
-        target="_blank"
-        download="Okorie_Chigozie_Resume.pdf"
-        class="px-2.5 sm:px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors font-medium items-center gap-1 hidden md:inline-flex"
+      <button
+        @click.prevent="isResumeModalOpen = true"
+        class="px-2.5 sm:px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors font-medium flex items-center gap-1.5 hidden md:inline-flex"
       >
         <FileDown class="w-3.5 h-3.5" />
-        <span>Resume</span>
-      </a>
+        <span>CV</span>
+      </button>
 
       <div class="h-4 w-[1px] bg-white/10 mx-0.5 sm:mx-1"></div>
 

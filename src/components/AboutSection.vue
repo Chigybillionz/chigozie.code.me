@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { FileDown, Terminal, MapPin, CheckCircle2 } from 'lucide-vue-next'
+import { ref } from 'vue'
+import { FileDown, Terminal, MapPin, CheckCircle2, Eye, X } from 'lucide-vue-next'
+import { isResumeModalOpen } from '../composables/useResumeModal'
 
 const highlights = [
   'Fullstack Engineering: Vue.js, React, TypeScript, and Node.js architectures.',
@@ -21,7 +23,7 @@ const highlights = [
         </div>
 
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Coding, Break, Debug, Ship, Repeat 😎
+          Coding, Break, Debug, Ship, Repeat
         </h2>
 
         <div class="space-y-4 text-neutral-300 text-base sm:text-lg leading-relaxed">
@@ -47,14 +49,13 @@ const highlights = [
 
         <!-- Action / Resume Download -->
         <div class="pt-4 flex flex-wrap items-center gap-4">
-          <a
-            href="/mee.pdf"
-            download="Okorie_Chigozie_Resume.pdf"
+          <button
+            @click="isResumeModalOpen = true"
             class="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-neutral-900 border border-white/10 hover:border-white/30 text-white font-semibold text-sm transition-all hover:bg-neutral-800 hover:scale-105 active:scale-95 shadow-lg"
           >
-            <FileDown class="w-4 h-4 text-purple-400" />
-            <span>Download Resume</span>
-          </a>
+            <Eye class="w-4 h-4 text-purple-400" />
+            <span>View Resume</span>
+          </button>
 
           <div class="flex items-center gap-2 text-xs text-neutral-400">
             <MapPin class="w-4 h-4 text-neutral-500" />
@@ -91,6 +92,54 @@ const highlights = [
               </span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resume Modal Overlay -->
+    <div
+      v-if="isResumeModalOpen"
+      class="fixed inset-0 z-[100] flex flex-col items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+    >
+      <!-- Close area outside modal -->
+      <div class="absolute inset-0" @click="isResumeModalOpen = false"></div>
+
+      <!-- Modal Content -->
+      <div class="relative z-10 w-full max-w-4xl h-[85vh] flex flex-col bg-neutral-900 rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between p-4 border-b border-white/10 bg-neutral-950">
+          <h3 class="text-white font-semibold flex items-center gap-2">
+            <Terminal class="w-4 h-4 text-purple-400" />
+            Resume Preview
+          </h3>
+          <button
+            @click="isResumeModalOpen = false"
+            class="p-2 text-neutral-400 hover:text-white rounded-full hover:bg-white/10 transition-colors"
+          >
+            <X class="w-5 h-5" />
+          </button>
+        </div>
+
+        <!-- PDF Viewer -->
+        <div class="flex-1 bg-neutral-800/50 relative overflow-hidden">
+          <iframe
+            src="/mee.pdf"
+            class="w-full h-full border-none"
+            title="Resume Preview"
+          ></iframe>
+        </div>
+
+        <!-- Footer / Download Button -->
+        <div class="p-4 border-t border-white/10 bg-neutral-950 flex justify-end">
+          <a
+            href="/mee.pdf"
+            download="Okorie_Chigozie_Resume.pdf"
+            class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm transition-colors shadow-lg shadow-purple-600/20"
+          >
+            <FileDown class="w-4 h-4" />
+            <span>Download PDF</span>
+          </a>
         </div>
       </div>
     </div>
