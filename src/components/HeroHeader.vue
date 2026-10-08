@@ -8,25 +8,25 @@ const socials = [
     name: 'GitHub',
     url: 'https://github.com/chigybillionz',
     icon: Github,
-    hoverClass: 'hover:text-white hover:border-white/40',
+    hoverClass: 'hover:text-neutral-950 dark:hover:text-white hover:border-black/30 dark:hover:border-white/40',
   },
   {
     name: 'X (Twitter)',
     url: 'https://x.com',
     icon: Twitter,
-    hoverClass: 'hover:text-sky-400 hover:border-sky-400/40',
+    hoverClass: 'hover:text-sky-500 hover:border-sky-400/40',
   },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/okorie-chigozie-jehoshaphat-4b255526b/',
     icon: Linkedin,
-    hoverClass: 'hover:text-blue-400 hover:border-blue-400/40',
+    hoverClass: 'hover:text-blue-500 hover:border-blue-400/40',
   },
   {
     name: 'Email',
     url: 'mailto:okoriechigozie99@gmail.com',
     icon: Mail,
-    hoverClass: 'hover:text-emerald-400 hover:border-emerald-400/40',
+    hoverClass: 'hover:text-emerald-500 hover:border-emerald-400/40',
   },
 ]
 </script>
@@ -35,7 +35,7 @@ const socials = [
   <section class="relative w-full max-w-5xl mx-auto pt-20 sm:pt-24 px-4 sm:px-6">
     <!-- Top Banner Card -->
     <div
-      class="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-neutral-900 group"
+      class="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 rounded-2xl md:rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-xl dark:shadow-2xl bg-neutral-900 group"
     >
       <!-- Banner Background Image -->
       <img
@@ -66,7 +66,7 @@ const socials = [
         <div class="relative">
           <!-- Circular Avatar with Border Ring -->
           <div
-            class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full p-1 bg-[#050505] shadow-2xl relative"
+            class="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full p-1 bg-slate-50 dark:bg-[#050505] shadow-2xl relative transition-colors duration-300"
           >
             <div
               class="w-full h-full rounded-full overflow-hidden border-2 border-emerald-500/80 bg-neutral-900 relative group"
@@ -84,7 +84,7 @@ const socials = [
 
             <!-- Online / Available Status Indicator Dot -->
             <div
-              class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#050505] flex items-center justify-center"
+              class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-50 dark:bg-[#050505] flex items-center justify-center transition-colors duration-300"
             >
               <div
                 class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-emerald-500 animate-pulse ring-2 ring-emerald-400/50"
@@ -100,29 +100,29 @@ const socials = [
       <!-- Identity & Subtitle -->
       <div class="space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-baseline gap-2">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-950 dark:text-white tracking-tight transition-colors">
             Okorie Chigozie
           </h1>
         </div>
 
         <!-- Role / Skills Subtitle Line with Separator Dots -->
         <p
-          class="text-neutral-300 sm:text-neutral-400 text-sm sm:text-base md:text-lg font-normal flex flex-wrap items-center gap-1.5 sm:gap-2 leading-relaxed"
+          class="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base md:text-lg font-normal flex flex-wrap items-center gap-1.5 sm:gap-2 leading-relaxed transition-colors"
         >
           <span>Fullstack Software Engineer</span>
-          <span class="text-neutral-600 font-bold">·</span>
+          <span class="text-neutral-400 dark:text-neutral-600 font-bold">·</span>
           <span>Vue.js</span>
-          <span class="text-neutral-600 font-bold">·</span>
+          <span class="text-neutral-400 dark:text-neutral-600 font-bold">·</span>
           <span>React.js</span>
-          <span class="text-neutral-600 font-bold">·</span>
+          <span class="text-neutral-400 dark:text-neutral-600 font-bold">·</span>
           <span>TypeScript</span>
-          <span class="text-neutral-600 font-bold">·</span>
+          <span class="text-neutral-400 dark:text-neutral-600 font-bold">·</span>
           <span>Tailwind</span>
-          <span class="text-neutral-600 font-bold">·</span>
+          <span class="text-neutral-400 dark:text-neutral-600 font-bold">·</span>
           <span>Node.js</span>
-          <span class="text-neutral-600 font-bold">·</span>
+          <span class="text-neutral-400 dark:text-neutral-600 font-bold">·</span>
           <span>Express.js</span>
-          <span class="text-neutral-600 font-bold">·</span>
+          <span class="text-neutral-400 dark:text-neutral-600 font-bold">·</span>
           <span>👨‍💻</span>
         </p>
 
@@ -135,7 +135,7 @@ const socials = [
             target="_blank"
             rel="noopener noreferrer"
             :title="social.name"
-            class="flex items-center justify-center w-10 h-10 rounded-xl border border-white/10 bg-neutral-900/50 text-neutral-400 transition-all duration-200 hover:scale-110 active:scale-95 shadow-sm"
+            class="flex items-center justify-center w-10 h-10 rounded-xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-900/50 text-neutral-600 dark:text-neutral-400 transition-all duration-200 hover:scale-110 active:scale-95 shadow-sm"
             :class="social.hoverClass"
           >
             <component :is="social.icon" class="w-4 h-4 sm:w-5 sm:h-5" />

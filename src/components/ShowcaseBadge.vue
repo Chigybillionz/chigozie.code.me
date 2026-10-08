@@ -38,9 +38,36 @@
 
   padding: 0 24px;
 
-  border: 1px solid rgba(159, 91, 255, 0.45);
+  border: 1px solid rgba(159, 91, 255, 0.35);
   border-radius: 999px;
 
+  background:
+    radial-gradient(
+      circle at 5% 50%,
+      rgba(126, 34, 255, 0.1),
+      transparent 25%
+    ),
+    linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(247, 243, 255, 0.85)
+    );
+
+  box-shadow:
+    0 8px 25px rgba(123, 43, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  overflow: hidden;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+:global(.dark) .showcase-card {
+  border: 1px solid rgba(159, 91, 255, 0.45);
   background:
     radial-gradient(
       circle at 5% 50%,
@@ -52,18 +79,9 @@
       rgba(255, 255, 255, 0.035),
       rgba(255, 255, 255, 0.012)
     );
-
   box-shadow:
     0 0 35px rgba(123, 43, 255, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  overflow: hidden;
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
 }
 
 /* Purple edge lighting */
@@ -115,17 +133,27 @@
   background:
     radial-gradient(
       circle,
-      rgba(145, 70, 255, 0.16),
-      rgba(90, 35, 160, 0.05)
+      rgba(145, 70, 255, 0.12),
+      rgba(90, 35, 160, 0.03)
     );
 
-  border: 1px solid rgba(168, 85, 247, 0.25);
+  border: 1px solid rgba(168, 85, 247, 0.2);
 
   box-shadow:
     inset 0 0 25px rgba(138, 43, 226, 0.08),
     0 0 20px rgba(124, 58, 237, 0.08);
 
   overflow: hidden;
+}
+
+:global(.dark) .visual-box {
+  background:
+    radial-gradient(
+      circle,
+      rgba(145, 70, 255, 0.16),
+      rgba(90, 35, 160, 0.05)
+    );
+  border: 1px solid rgba(168, 85, 247, 0.25);
 }
 
 .cameraman {
@@ -174,18 +202,24 @@
 }
 
 .showcase-text span {
-  color: rgba(255, 255, 255, 0.88);
+  color: #1e293b;
+  font-weight: 500;
+}
 
+:global(.dark) .showcase-text span {
+  color: rgba(255, 255, 255, 0.88);
   font-weight: 400;
 }
 
 .showcase-text strong {
   margin-left: 7px;
+  color: #9333ea;
+  font-weight: 700;
+}
 
+:global(.dark) .showcase-text strong {
   color: #a855f7;
-
   font-weight: 650;
-
   text-shadow:
     0 0 20px rgba(168, 85, 247, 0.25);
 }

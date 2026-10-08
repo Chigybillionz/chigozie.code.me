@@ -9,8 +9,8 @@ const currentYear = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="relative w-full max-w-5xl mx-auto py-10 px-4 sm:px-6 border-t border-neutral-900">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+  <footer class="relative w-full max-w-5xl mx-auto py-10 px-4 sm:px-6 border-t border-neutral-200 dark:border-neutral-900 transition-colors">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 dark:text-neutral-500">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
         <span>© {{ currentYear }} Okorie Chigozie. All rights reserved.</span>
@@ -19,7 +19,7 @@ const currentYear = new Date().getFullYear()
       <div class="flex items-center gap-6">
         <button
           @click="scrollToTop"
-          class="inline-flex items-center gap-1.5 text-neutral-400 hover:text-white transition-colors"
+          class="inline-flex items-center gap-1.5 text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white transition-colors"
           title="Back to top"
         >
           <span>Top</span>

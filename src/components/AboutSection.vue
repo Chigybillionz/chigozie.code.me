@@ -16,21 +16,21 @@ const highlights = [
       <!-- Left Narrative Column -->
       <div class="lg:col-span-7 space-y-6">
         <div
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-400 text-xs font-semibold"
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-semibold"
         >
           <Terminal class="w-3.5 h-3.5" />
           <span>About Me</span>
         </div>
 
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 dark:text-white tracking-tight transition-colors">
           Coding, Break, Debug, Ship, Repeat
         </h2>
 
-        <div class="space-y-4 text-neutral-300 text-base sm:text-lg leading-relaxed">
+        <div class="space-y-4 text-neutral-700 dark:text-neutral-300 text-base sm:text-lg leading-relaxed transition-colors">
           <p>
-            Hey! I'm <strong class="text-white">Okorie Chigozie</strong>, a Fullstack Software Engineer based in Lagos, Nigeria. I build resilient, performant web applications and software systems that translate complex user needs into effortless digital experiences.
+            Hey! I'm <strong class="text-neutral-950 dark:text-white">Okorie Chigozie</strong>, a Fullstack Software Engineer based in Lagos, Nigeria. I build resilient, performant web applications and software systems that translate complex user needs into effortless digital experiences.
           </p>
-          <p class="text-neutral-400 text-sm sm:text-base">
+          <p class="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base transition-colors">
             Whether I'm engineering reactive frontends in Vue.js and React, architecting scalable backend APIs in Node.js and Express, or optimizing production deployments, I obsess over quality, security, and developer craftsmanship.
           </p>
         </div>
@@ -40,9 +40,9 @@ const highlights = [
           <div
             v-for="(item, idx) in highlights"
             :key="idx"
-            class="flex items-start gap-3 text-sm sm:text-base text-neutral-300"
+            class="flex items-start gap-3 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 transition-colors"
           >
-            <CheckCircle2 class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            <CheckCircle2 class="w-5 h-5 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
             <span>{{ item }}</span>
           </div>
         </div>
@@ -51,13 +51,13 @@ const highlights = [
         <div class="pt-4 flex flex-wrap items-center gap-4">
           <button
             @click="isResumeModalOpen = true"
-            class="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-neutral-900 border border-white/10 hover:border-white/30 text-white font-semibold text-sm transition-all hover:bg-neutral-800 hover:scale-105 active:scale-95 shadow-lg"
+            class="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-white/10 hover:border-purple-400 dark:hover:border-white/30 text-neutral-900 dark:text-white font-semibold text-sm transition-all hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:scale-105 active:scale-95 shadow-md dark:shadow-lg"
           >
-            <Eye class="w-4 h-4 text-purple-400" />
+            <Eye class="w-4 h-4 text-purple-600 dark:text-purple-400" />
             <span>View Resume</span>
           </button>
 
-          <div class="flex items-center gap-2 text-xs text-neutral-400">
+          <div class="flex items-center gap-2 text-xs text-neutral-600 dark:text-neutral-400">
             <MapPin class="w-4 h-4 text-neutral-500" />
             <span>Based in Lagos, Nigeria</span>
           </div>
@@ -67,7 +67,7 @@ const highlights = [
       <!-- Right Column: Visual Photo Card -->
       <div class="lg:col-span-5 relative">
         <div
-          class="relative mx-auto max-w-[360px] rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900/60 p-3 shadow-2xl group"
+          class="relative mx-auto max-w-[360px] rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/60 p-3 shadow-xl dark:shadow-2xl group transition-colors"
         >
           <!-- Subtle Glow Behind Card -->
           <div
@@ -105,24 +105,24 @@ const highlights = [
       <div class="absolute inset-0" @click="isResumeModalOpen = false"></div>
 
       <!-- Modal Content -->
-      <div class="relative z-10 w-full max-w-4xl h-[85vh] flex flex-col bg-neutral-900 rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+      <div class="relative z-10 w-full max-w-4xl h-[85vh] flex flex-col bg-white dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-white/10 shadow-2xl overflow-hidden transition-colors">
         
         <!-- Header -->
-        <div class="flex items-center justify-between p-4 border-b border-white/10 bg-neutral-950">
-          <h3 class="text-white font-semibold flex items-center gap-2">
-            <Terminal class="w-4 h-4 text-purple-400" />
+        <div class="flex items-center justify-between p-4 border-b border-neutral-200 dark:border-white/10 bg-neutral-100 dark:bg-neutral-950">
+          <h3 class="text-neutral-900 dark:text-white font-semibold flex items-center gap-2">
+            <Terminal class="w-4 h-4 text-purple-600 dark:text-purple-400" />
             Resume Preview
           </h3>
           <button
             @click="isResumeModalOpen = false"
-            class="p-2 text-neutral-400 hover:text-white rounded-full hover:bg-white/10 transition-colors"
+            class="p-2 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white rounded-full hover:bg-neutral-200 dark:hover:bg-white/10 transition-colors"
           >
             <X class="w-5 h-5" />
           </button>
         </div>
 
         <!-- PDF Viewer -->
-        <div class="flex-1 bg-neutral-800/50 relative overflow-hidden">
+        <div class="flex-1 bg-neutral-100 dark:bg-neutral-800/50 relative overflow-hidden">
           <iframe
             src="/mee.pdf"
             class="w-full h-full border-none"
@@ -131,7 +131,7 @@ const highlights = [
         </div>
 
         <!-- Footer / Download Button -->
-        <div class="p-4 border-t border-white/10 bg-neutral-950 flex justify-end">
+        <div class="p-4 border-t border-neutral-200 dark:border-white/10 bg-neutral-100 dark:bg-neutral-950 flex justify-end">
           <a
             href="/mee.pdf"
             download="Okorie_Chigozie_Resume.pdf"

@@ -39,51 +39,51 @@ const socials = [
   <section id="contact" class="relative w-full max-w-5xl mx-auto py-16 sm:py-24 px-4 sm:px-6">
     <!-- Ambient Glow -->
     <div
-      class="absolute bottom-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/15 blur-[140px] rounded-full pointer-events-none"
+      class="absolute bottom-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-500/10 dark:bg-purple-600/15 blur-[140px] rounded-full pointer-events-none"
     ></div>
 
     <div
-      class="relative rounded-3xl md:rounded-4xl border border-neutral-800/90 bg-neutral-900/40 backdrop-blur-xl p-6 sm:p-10 md:p-14 overflow-hidden shadow-2xl"
+      class="relative rounded-3xl md:rounded-4xl border border-neutral-200 dark:border-neutral-800/90 bg-white/80 dark:bg-neutral-900/40 backdrop-blur-xl p-6 sm:p-10 md:p-14 overflow-hidden shadow-xl dark:shadow-2xl transition-colors"
     >
       <!-- Corner decor -->
-      <div class="absolute top-4 right-4 text-neutral-700 text-sm font-mono select-none">+</div>
-      <div class="absolute bottom-4 left-4 text-neutral-700 text-sm font-mono select-none">+</div>
+      <div class="absolute top-4 right-4 text-neutral-300 dark:text-neutral-700 text-sm font-mono select-none">+</div>
+      <div class="absolute bottom-4 left-4 text-neutral-300 dark:text-neutral-700 text-sm font-mono select-none">+</div>
 
       <div class="max-w-3xl mx-auto text-center space-y-6">
         <div
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-400 text-xs font-semibold"
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-semibold"
         >
           <MessageSquare class="w-3.5 h-3.5" />
           <span>Slide In</span>
         </div>
 
-        <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
+        <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-neutral-950 dark:text-white tracking-tight leading-tight transition-colors">
           Have a project in mind?<br />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-500 dark:from-purple-400 dark:to-indigo-300">
             Let’s build something extraordinary.
           </span>
         </h2>
 
-        <p class="text-neutral-400 text-base sm:text-lg max-w-xl mx-auto">
+        <p class="text-neutral-600 dark:text-neutral-400 text-base sm:text-lg max-w-xl mx-auto transition-colors">
           I'm currently available for full-time engineering roles, high-impact contract work, or technical consulting. Drop a line and let's discuss.
         </p>
 
         <!-- Interactive Email Box with Copy Feature -->
         <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
           <div
-            class="flex items-center justify-between gap-3 px-4 sm:px-5 py-3 rounded-2xl bg-neutral-950 border border-neutral-800 text-neutral-200 text-xs sm:text-sm font-mono w-full sm:w-auto shadow-inner"
+            class="flex items-center justify-between gap-3 px-4 sm:px-5 py-3 rounded-2xl bg-slate-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs sm:text-sm font-mono w-full sm:w-auto shadow-inner transition-colors"
           >
             <div class="flex items-center gap-2 overflow-hidden">
-              <Mail class="w-4 h-4 text-purple-400 shrink-0" />
+              <Mail class="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
               <span class="truncate">{{ email }}</span>
             </div>
 
             <button
               @click="copyEmail"
-              class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white transition-all text-xs font-sans shrink-0 border border-white/5"
+              class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-all text-xs font-sans shrink-0 border border-neutral-200 dark:border-white/5"
               title="Copy to clipboard"
             >
-              <component :is="copied ? Check : Copy" class="w-3.5 h-3.5" :class="copied ? 'text-emerald-400' : ''" />
+              <component :is="copied ? Check : Copy" class="w-3.5 h-3.5" :class="copied ? 'text-emerald-500 dark:text-emerald-400' : ''" />
               <span>{{ copied ? 'Copied!' : 'Copy' }}</span>
             </button>
           </div>
@@ -98,7 +98,7 @@ const socials = [
         </div>
 
         <!-- Social Channels -->
-        <div class="pt-8 border-t border-neutral-800/80 mt-8">
+        <div class="pt-8 border-t border-neutral-200 dark:border-neutral-800/80 mt-8">
           <p class="text-xs uppercase tracking-widest text-neutral-500 mb-4 font-semibold">
             Or connect on social networks
           </p>
@@ -110,11 +110,11 @@ const socials = [
               :href="item.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white text-xs font-medium transition-all"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 bg-neutral-100/80 dark:bg-white/5 hover:bg-neutral-200/80 dark:hover:bg-white/10 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white text-xs font-medium transition-all"
             >
               <component :is="item.icon" class="w-3.5 h-3.5" />
               <span>{{ item.name }}</span>
-              <ArrowUpRight class="w-3 h-3 text-neutral-500" />
+              <ArrowUpRight class="w-3 h-3 text-neutral-400 dark:text-neutral-500" />
             </a>
           </div>
         </div>

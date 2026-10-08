@@ -31,9 +31,34 @@
 
   padding: 0 20px;
 
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(0, 0, 0, 0.09);
   border-radius: 999px;
 
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(0, 255, 170, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(245, 247, 250, 0.85)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 10px 25px rgba(0, 0, 0, 0.06);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+:global(.dark) .availability-card {
+  border: 1px solid rgba(255, 255, 255, 0.09);
   background:
     radial-gradient(
       circle at 15% 50%,
@@ -45,23 +70,16 @@
       rgba(255, 255, 255, 0.035),
       rgba(255, 255, 255, 0.012)
     );
-
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.035),
     0 10px 30px rgba(0, 0, 0, 0.35);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  overflow: hidden;
-  transition: all 0.3s ease;
 }
 
 .availability-card:hover {
-  border-color: rgba(0, 232, 154, 0.25);
+  border-color: rgba(0, 232, 154, 0.4);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 12px 35px rgba(0, 232, 154, 0.08);
+    0 12px 35px rgba(0, 232, 154, 0.15);
 }
 
 /* subtle inner highlight */
@@ -95,13 +113,18 @@
 
   flex-shrink: 0;
 
-  border: 1px solid rgba(0, 255, 170, 0.2);
+  border: 1px solid rgba(0, 255, 170, 0.3);
   border-radius: 50%;
 
-  background: rgba(0, 255, 170, 0.03);
+  background: rgba(0, 255, 170, 0.08);
 
   box-shadow:
     inset 0 0 15px rgba(0, 255, 170, 0.06);
+}
+
+:global(.dark) .status-icon {
+  background: rgba(0, 255, 170, 0.03);
+  border: 1px solid rgba(0, 255, 170, 0.2);
 }
 
 .status-dot {
@@ -127,6 +150,10 @@
   margin-left: 14px;
   margin-right: 16px;
 
+  background: rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .divider {
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -134,7 +161,7 @@
 .availability-text {
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.7);
+  color: #334155;
 
   font-family:
     Inter,
@@ -146,13 +173,23 @@
     sans-serif;
 
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.015em;
 
   white-space: nowrap;
 }
 
+:global(.dark) .availability-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
 .available {
+  color: #00ba7c;
+  font-weight: 650;
+}
+
+:global(.dark) .available {
   color: #00e89a;
   font-weight: 600;
 }

@@ -61,15 +61,15 @@ const copySnippet = () => {
     <!-- Section Header -->
     <div class="space-y-3 mb-12 sm:mb-16">
       <div
-        class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-400 text-xs font-semibold"
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-semibold"
       >
         <Layers class="w-3.5 h-3.5" />
         <span>My Tech Stack</span>
       </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-neutral-950 dark:text-white tracking-tight transition-colors">
         Engineered with modern tools.
       </h2>
-      <p class="text-neutral-400 text-base sm:text-lg max-w-2xl">
+      <p class="text-neutral-600 dark:text-neutral-400 text-base sm:text-lg max-w-2xl transition-colors">
         Carefully chosen technologies and frameworks I use to engineer robust, high-performance web applications.
       </p>
     </div>
@@ -81,9 +81,9 @@ const copySnippet = () => {
         <div
           v-for="(cat, idx) in categories"
           :key="cat.title"
-          class="rounded-3xl border border-neutral-800/80 bg-neutral-900/30 backdrop-blur-md p-5 sm:p-6"
+          class="rounded-3xl border border-neutral-200 dark:border-neutral-800/80 bg-white/80 dark:bg-neutral-900/30 backdrop-blur-md p-5 sm:p-6 shadow-sm dark:shadow-none transition-colors"
         >
-          <h3 class="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-4 flex items-center gap-2">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400 mb-4 flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
             {{ cat.title }}
           </h3>
@@ -92,7 +92,7 @@ const copySnippet = () => {
             <div
               v-for="skill in cat.skills"
               :key="skill.name"
-              class="group relative flex items-center gap-3 p-3 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 overflow-hidden"
+              class="group relative flex items-center gap-3 p-3 rounded-2xl border border-black/5 dark:border-white/5 bg-slate-50 dark:bg-white/[0.02] hover:bg-neutral-100 dark:hover:bg-white/[0.06] hover:border-purple-300 dark:hover:border-white/20 transition-all duration-300 overflow-hidden"
             >
               <!-- Huge Background Icon on Hover -->
               <div 
@@ -110,7 +110,7 @@ const copySnippet = () => {
               
               <!-- Text -->
               <div class="relative z-10 overflow-hidden">
-                <p class="text-xs sm:text-sm font-semibold text-white truncate transition-colors duration-300 group-hover:text-purple-300">{{ skill.name }}</p>
+                <p class="text-xs sm:text-sm font-semibold text-neutral-800 dark:text-white truncate transition-colors duration-300 group-hover:text-purple-600 dark:group-hover:text-purple-300">{{ skill.name }}</p>
                 <p class="text-[11px] text-neutral-500 truncate">{{ skill.level }}</p>
               </div>
             </div>
@@ -121,16 +121,16 @@ const copySnippet = () => {
       <!-- Right: Terminal Snippet Card (5 cols) -->
       <div class="lg:col-span-5 flex flex-col">
         <div
-          class="h-full rounded-3xl border border-neutral-800 bg-neutral-950 p-5 sm:p-6 flex flex-col justify-between shadow-2xl relative overflow-hidden group"
+          class="h-full rounded-3xl border border-neutral-300 dark:border-neutral-800 bg-[#0d1117] dark:bg-neutral-950 p-5 sm:p-6 flex flex-col justify-between shadow-xl dark:shadow-2xl relative overflow-hidden group transition-colors"
         >
           <!-- Terminal Top Bar -->
           <div>
-            <div class="flex items-center justify-between pb-4 border-b border-neutral-800/80">
+            <div class="flex items-center justify-between pb-4 border-b border-neutral-800">
               <div class="flex items-center gap-2">
                 <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
                 <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                 <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                <span class="ml-2 text-xs font-mono text-neutral-500">engineer.config.ts</span>
+                <span class="ml-2 text-xs font-mono text-neutral-400">engineer.config.ts</span>
               </div>
 
               <button
@@ -162,7 +162,7 @@ const copySnippet = () => {
           </div>
 
           <!-- Bottom interactive badge -->
-          <div class="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs text-neutral-500">
+          <div class="mt-6 pt-4 border-t border-neutral-800 flex items-center justify-between text-xs text-neutral-400">
             <span class="font-mono flex items-center gap-1.5">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
               Ready for collaboration
