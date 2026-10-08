@@ -79,7 +79,7 @@ const copySnippet = () => {
       <!-- Left: Categorized Skills Pills (7 cols) -->
       <div class="lg:col-span-7 space-y-6">
         <div
-          v-for="cat in categories"
+          v-for="(cat, idx) in categories"
           :key="cat.title"
           class="rounded-3xl border border-neutral-800/80 bg-neutral-900/30 backdrop-blur-md p-5 sm:p-6"
         >
@@ -92,12 +92,26 @@ const copySnippet = () => {
             <div
               v-for="skill in cat.skills"
               :key="skill.name"
-              class="group flex items-center gap-3 p-3 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-200"
+              class="group relative flex items-center gap-3 p-3 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 overflow-hidden"
             >
-              <div v-if="skill.icon.startsWith('<')" class="w-6 h-6 flex items-center justify-center shrink-0" v-html="skill.icon"></div>
-              <span v-else class="text-lg w-6 text-center shrink-0">{{ skill.icon }}</span>
-              <div class="overflow-hidden">
-                <p class="text-xs sm:text-sm font-semibold text-white truncate">{{ skill.name }}</p>
+              <!-- Huge Background Icon on Hover (Test for Frontend set) -->
+              <div 
+                v-if="idx === 0" 
+                class="absolute -right-2 -bottom-2 w-20 h-20 opacity-0 group-hover:opacity-[0.08] group-hover:scale-[2] group-hover:-rotate-12 transition-all duration-500 pointer-events-none z-0 flex items-center justify-center grayscale group-hover:grayscale-0"
+              >
+                <div v-if="skill.icon.startsWith('<')" class="w-full h-full [&>img]:w-full [&>img]:h-full [&>svg]:w-full [&>svg]:h-full [&>svg]:!h-full [&>svg]:!w-full [&>img]:object-contain" v-html="skill.icon"></div>
+                <span v-else class="text-[4rem] leading-none">{{ skill.icon }}</span>
+              </div>
+
+              <!-- Normal Icon -->
+              <div class="relative z-10 w-6 h-6 flex items-center justify-center shrink-0">
+                <div v-if="skill.icon.startsWith('<')" class="w-full h-full flex items-center justify-center [&>img]:w-full [&>img]:h-full [&>svg]:w-full [&>svg]:h-full" v-html="skill.icon"></div>
+                <span v-else class="text-lg">{{ skill.icon }}</span>
+              </div>
+              
+              <!-- Text -->
+              <div class="relative z-10 overflow-hidden">
+                <p class="text-xs sm:text-sm font-semibold text-white truncate transition-colors duration-300 group-hover:text-purple-300">{{ skill.name }}</p>
                 <p class="text-[11px] text-neutral-500 truncate">{{ skill.level }}</p>
               </div>
             </div>
