@@ -160,7 +160,7 @@ const getCardStyle = (index: number) => {
         :ref="(el) => setCardRef(el, index)"
         :style="getCardStyle(index)"
         :class="[
-          'group relative flex flex-col justify-between rounded-3xl border border-neutral-800 bg-[#0e0e12] sm:bg-neutral-900/90 backdrop-blur-md p-5 sm:p-6 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/95 hover:shadow-2xl hover:shadow-purple-950/20',
+          'group relative flex flex-col md:flex-row justify-between gap-6 md:gap-8 lg:gap-12 rounded-3xl border border-neutral-800 bg-[#0e0e12] sm:bg-neutral-900/90 backdrop-blur-md p-5 sm:p-6 md:p-8 lg:p-10 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/95 hover:shadow-2xl hover:shadow-purple-950/20',
           'sticky shadow-[0_-10px_30px_rgba(0,0,0,0.8),0_20px_25px_-5px_rgba(0,0,0,0.9)] origin-top'
         ]"
       >
@@ -168,67 +168,68 @@ const getCardStyle = (index: number) => {
         <div class="absolute top-3 right-3 text-neutral-700 text-xs font-mono select-none">+</div>
         <div class="absolute bottom-3 left-3 text-neutral-700 text-xs font-mono select-none">+</div>
 
-        <!-- Project Preview Image -->
-        <div class="space-y-5">
+        <!-- Project Preview Image (Top on mobile, Left on desktop) -->
+        <div
+          class="relative w-full md:w-[45%] lg:w-1/2 shrink-0 aspect-[16/10] md:aspect-square lg:aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-neutral-950/80 group-hover:border-white/20 transition-colors"
+        >
+          <img
+            :src="project.img"
+            :alt="project.name"
+            class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+            loading="lazy"
+          />
           <div
-            class="relative w-full aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-neutral-950/80 group-hover:border-white/20 transition-colors"
-          >
-            <img
-              :src="project.img"
-              :alt="project.name"
-              class="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
-              loading="lazy"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent opacity-60"
-            ></div>
-          </div>
+            class="absolute inset-0 bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent opacity-60"
+          ></div>
+        </div>
 
+        <!-- Project Info & Actions (Bottom on mobile, Right on desktop) -->
+        <div class="flex flex-col justify-center flex-grow space-y-6 sm:space-y-8 md:py-4">
           <!-- Project Metadata -->
-          <div class="space-y-3">
-            <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">
+          <div class="space-y-3 sm:space-y-4">
+            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white group-hover:text-purple-300 transition-colors">
               {{ project.name }}
             </h3>
-            <p class="text-sm sm:text-base text-neutral-400 leading-relaxed">
+            <p class="text-sm sm:text-base text-neutral-400 leading-relaxed max-w-lg">
               {{ project.description }}
             </p>
           </div>
-        </div>
 
-        <!-- Tags & Actions Footer -->
-        <div class="pt-6 space-y-4">
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-1.5 sm:gap-2">
-            <span
-              v-for="tag in project.tags"
-              :key="tag"
-              class="px-2.5 py-1 rounded-full text-xs font-medium border border-white/5 bg-white/5 text-neutral-300"
-            >
-              {{ tag }}
-            </span>
-          </div>
+          <!-- Tags & Actions -->
+          <div class="space-y-6">
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="tag in project.tags"
+                :key="tag"
+                class="px-3 py-1.5 rounded-full text-xs font-medium border border-white/5 bg-white/5 text-neutral-300 shadow-sm"
+              >
+                {{ tag }}
+              </span>
+            </div>
 
-          <!-- Action Buttons -->
-          <div class="flex items-center gap-3 pt-2">
-            <a
-              :href="project.liveLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs sm:text-sm font-semibold transition-all transform hover:scale-105 active:scale-95 shadow-md shadow-purple-900/30"
-            >
-              <span>Live Preview</span>
-              <ExternalLink class="w-3.5 h-3.5" />
-            </a>
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-3 pt-2">
+              <a
+                :href="project.liveLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs sm:text-sm font-semibold transition-all transform hover:scale-105 active:scale-95 shadow-md shadow-purple-900/30"
+              >
+                <span>Live Preview</span>
+                <ExternalLink class="w-4 h-4" />
+              </a>
 
-            <a
-              :href="project.githubLink"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white text-xs sm:text-sm font-medium transition-all"
-            >
-              <Github class="w-3.5 h-3.5" />
-              <span>Source</span>
-            </a>
+              <a
+                :href="project.githubLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white text-xs sm:text-sm font-medium transition-all"
+              >
+                <Github class="w-4 h-4" />
+                <span>Source</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
