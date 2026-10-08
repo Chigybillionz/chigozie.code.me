@@ -23,8 +23,8 @@ const projects = [
     name: 'Launchpad Platform',
     category: ['Fullstack'],
     description:
-      'AI-powered opportunity discovery and career readiness hub connecting high-potential talent with curated roles, grants, and hackathons.',
-    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
+      'AI-powered opportunity discovery and career readiness hub engineered with React, Node.js, and Neon database connecting high-potential talent with curated roles.',
+    tags: ['React', 'Node.js', 'Neon DB', 'TypeScript', 'Tailwind'],
     img: '/launchpad.png',
     liveLink: 'https://launchpad-iota-seven.vercel.app/',
     githubLink: 'https://github.com/Chigybillionz/launchpad.git',
