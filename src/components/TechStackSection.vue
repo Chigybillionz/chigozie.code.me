@@ -94,9 +94,8 @@ const copySnippet = () => {
               :key="skill.name"
               class="group relative flex items-center gap-3 p-3 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 overflow-hidden"
             >
-              <!-- Huge Background Icon on Hover (Test for Frontend set) -->
+              <!-- Huge Background Icon on Hover -->
               <div 
-                v-if="idx === 0" 
                 class="absolute -right-2 -bottom-2 w-20 h-20 opacity-0 group-hover:opacity-[0.08] group-hover:scale-[2] group-hover:-rotate-12 transition-all duration-500 pointer-events-none z-0 flex items-center justify-center grayscale group-hover:grayscale-0"
               >
                 <div v-if="skill.icon.startsWith('<')" class="w-full h-full [&>img]:w-full [&>img]:h-full [&>svg]:w-full [&>svg]:h-full [&>svg]:!h-full [&>svg]:!w-full [&>img]:object-contain" v-html="skill.icon"></div>
