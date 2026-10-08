@@ -47,7 +47,6 @@ const projects = [
 ]
 
 const cardRefs = ref<(HTMLElement | null)[]>([])
-const isMobile = ref(false)
 const cardStyles = ref<{ scale: number; brightness: number; opacity: number }[]>([])
 
 const setCardRef = (el: any, index: number) => {
@@ -56,12 +55,13 @@ const setCardRef = (el: any, index: number) => {
 
 let ticking = false
 const updateStackingEffects = () => {
-  if (!isMobile.value || cardRefs.value.length === 0) return
+  if (cardRefs.value.length === 0) return
 
   const total = projects.length
-  const topStickyBase = 84 // px offset below mobile floating navbar
-  const stepOffset = 12 // px offset per stacked card
-  const distanceWindow = 320 // px window over which docking animation interpolates
+  // Desktop navbar is a bit taller/further down, so we give more space
+  const topStickyBase = window.innerWidth >= 768 ? 110 : 84
+  const stepOffset = 16 // px offset per stacked card
+  const distanceWindow = 400 // px window over which docking animation interpolates
 
   // Calculate arrival progress (0 to 1) for each card docking into sticky position
   const progressList = projects.map((_, i) => {
@@ -106,33 +106,21 @@ const handleScroll = () => {
   }
 }
 
-const checkMobile = () => {
-  const wasMobile = isMobile.value
-  isMobile.value = window.innerWidth < 768
-  if (isMobile.value) {
-    updateStackingEffects()
-  } else if (wasMobile) {
-    cardStyles.value = []
-  }
-}
-
 onMounted(() => {
-  checkMobile()
-  window.addEventListener('resize', checkMobile, { passive: true })
+  window.addEventListener('resize', updateStackingEffects, { passive: true })
   window.addEventListener('scroll', handleScroll, { passive: true })
   setTimeout(updateStackingEffects, 100)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('resize', checkMobile)
+  window.removeEventListener('resize', updateStackingEffects)
   window.removeEventListener('scroll', handleScroll)
 })
 
 const getCardStyle = (index: number) => {
-  if (!isMobile.value) return {}
   const style = cardStyles.value[index]
-  const topStickyBase = 84
-  const stepOffset = 12
+  const topStickyBase = window.innerWidth >= 768 ? 110 : 84
+  const stepOffset = 16
 
   return {
     top: `${topStickyBase + index * stepOffset}px`,
@@ -164,17 +152,16 @@ const getCardStyle = (index: number) => {
       </div>
     </div>
 
-    <!-- 2-Column Staggered Masonry Grid on Desktop / Sticky Stacking on Mobile -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 pb-8 sm:pb-0">
+    <!-- Single-Column Sticky Stacking Grid -->
+    <div class="flex flex-col gap-12 lg:gap-16 pb-8 sm:pb-0 mx-auto max-w-3xl">
       <div
         v-for="(project, index) in projects"
         :key="project.name"
         :ref="(el) => setCardRef(el, index)"
         :style="getCardStyle(index)"
         :class="[
-          'group relative flex flex-col justify-between rounded-3xl border border-neutral-800 bg-[#0e0e12] sm:bg-neutral-900/40 backdrop-blur-md p-5 sm:p-6 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/70 hover:shadow-2xl hover:shadow-purple-950/20',
-          'max-md:sticky max-md:shadow-[0_-10px_30px_rgba(0,0,0,0.8),0_20px_25px_-5px_rgba(0,0,0,0.9)] max-md:origin-top',
-          index % 2 === 1 ? 'md:translate-y-10' : ''
+          'group relative flex flex-col justify-between rounded-3xl border border-neutral-800 bg-[#0e0e12] sm:bg-neutral-900/90 backdrop-blur-md p-5 sm:p-6 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/95 hover:shadow-2xl hover:shadow-purple-950/20',
+          'sticky shadow-[0_-10px_30px_rgba(0,0,0,0.8),0_20px_25px_-5px_rgba(0,0,0,0.9)] origin-top'
         ]"
       >
         <!-- Pixel corner accent dot -->
