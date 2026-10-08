@@ -35,12 +35,12 @@ const projects = [
     featured: false,
   },
   {
-    name: 'Attainment Academy',
+    name: 'Travel Genesis',
     description:
-      'Dynamic and enriching educational ecosystem delivering interactive digital curriculum for modern students and educators.',
-    tags: ['Next.js', 'PostgreSQL', 'Tailwind CSS'],
-    img: '/eee.png',
-    liveLink: 'https://github.com/chigybillionz',
+      'Premium travel booking platform. Discover, book, and manage your trips seamlessly with an intuitive, native web experience.',
+    tags: ['HTML5', 'CSS3', 'Vanilla JS', 'Web APIs'],
+    img: '/travel.png',
+    liveLink: 'https://travelgenisis.vercel.app/',
     githubLink: 'https://github.com/chigybillionz',
     featured: false,
   },
